@@ -1,3 +1,256 @@
+
+
+Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+MarketplaceService = game:GetService("MarketplaceService")
+PlaceId = game.PlaceId
+ProductInfo = MarketplaceService:GetProductInfo(PlaceId)
+GameName = ProductInfo.Name
+Plr = game.Players.LocalPlayer
+Char = Plr.Character
+Humanoid = Char:WaitForChild("Humanoid")
+Players = game:GetService("Players")
+LocalPlayer = Players.LocalPlayer
+CoreGui = game:GetService("CoreGui")
+ReplicatedStorage = game:GetService("ReplicatedStorage")
+Workspace = game:GetService("Workspace")
+RunService = game:GetService("RunService")
+
+Window = Fluent:CreateWindow({
+    Title = "With ❤️ Nami Hub -",
+    SubTitle = "" .. GameName,
+    Icon = "rbxassetid://79457684163404", --!
+    TabWidth = 115,
+    Size = UDim2.fromOffset(465, 360),
+    Acrylic = false,
+    Theme = "Amethyst",
+    MinimizeKey = Enum.KeyCode.LeftControl,
+})
+
+Tabs = {
+    Roll = Window:AddTab({Title = "• Roll", Icon = "rbxassetid://18786832523"}),
+}
+
+
+
+RollConfig = {
+    ["Dragon_Race"] = {
+        name = "Dragon Race",
+        tokenId = "rbxassetid://80543035071847",
+        tokensRequired = 10,
+        supremeName = "Saiyan",
+        type = "Phantom"
+    },
+    ["Saiyan_Evolution"] = {
+        name = "Saiyan Evolution",
+        tokenId = "rbxassetid://109763458341872",
+        tokensRequired = 10,
+        supremeName = "Super Saiyan 3",
+        type = "Phantom"
+    },
+    ["Pirate_Crew"] = {
+        name = "Pirate Crew",
+        tokenId = "rbxassetid://103797445341764",
+        tokensRequired = 10,
+        supremeName = "Red-Haired Pirates",
+        type = "Phantom"
+    },
+    ["Demon_Fruits"] = {
+        name = "Demon Fruits",
+        tokenId = "rbxassetid://131567976287121",
+        tokensRequired = 10,
+        supremeName = "Dough Fruit",
+        type = "Phantom"
+    },
+    ["Swords"] = {
+        name = "Swords",
+        tokenId = "rbxassetid://73036819543324",
+        tokensRequired = 10,
+        supremeName = "Venomstrike",
+        type = "Phantom",
+        Rolls = "Multi",
+    },
+    ["Reiatsu_Color"] = {
+        name = "Reiatsu_Color",
+        tokenId = "rbxassetid://74708155020004",
+        tokensRequired = 10,
+        supremeName = "Black Reiatsu",
+        type = "Phantom"
+    },
+    ["Zanpakuto"] = {
+        name = "Zanpakuto",
+        tokenId = "rbxassetid://71279193449431",
+        tokensRequired = 10,
+        supremeName = "Zangetsu",
+        type = "Phantom"
+    },
+    ["Curses"] = {
+        name = "Curses",
+        tokenId = "rbxassetid://130464802953428",
+        tokensRequired = 10,
+        supremeName = "Wandered Mind",
+        type = "Phantom"
+    },
+    ["Demon_Arts"] = {
+        name = "Demon Arts",
+        tokenId = "rbxassetid://101242883563591",
+        tokensRequired = 10,
+        supremeName = "Blood Control",
+        type = "Phantom"
+    },
+    ["Solo_Hunter_Rank"] = {
+        name = "Solo Hunter Rank",
+        tokenId = "rbxassetid://72419446650770",
+        tokensRequired = 10,
+        supremeName = "National Level Hunter",
+        type = "Phantom"
+    },
+    ["Grimoire"] = {
+        name = "Grimoire",
+        tokenId = "rbxassetid://103501763167478",
+        tokensRequired = 10,
+        supremeName = "Time Magic Grimoire",
+        type = "Phantom"
+    },
+    ["Power_Eyes"] = {
+        name = "Power Eyes",
+        tokenId = "rbxassetid://98415560656782",
+        tokensRequired = 10,
+        supremeName = "Eye of Six Paths",
+        type = "Supreme"
+    },
+    ["Psychic_Mayhem"] = {
+        name = "Psychic Mayhem",
+        tokenId = "rbxassetid://94544842370105",
+        tokensRequired = 10,
+        supremeName = "Energy Aura Blast",
+        type = "Phantom"
+    },
+    ["Energy_Card_Shop"] = {
+        name = "Energy Card Shop",
+        tokenId = "rbxassetid://73680690544439",
+        tokensRequired = 10,
+        supremeName = "Energy Card VII",
+        type = "Phantom"
+    },
+    ["Damage_Card_Shop"] = {
+        name = "Damage Card Shop",
+        tokenId = "rbxassetid://138364269346563",
+        tokensRequired = 10,
+        supremeName = "Damage Card VIII",
+        type = "Supreme"
+    },
+    ["Families"] = {
+        name = "Families",
+        tokenId = "rbxassetid://78180237497824",
+        tokensRequired = 10,
+        supremeName = "Reiss Family",
+        type = "Phantom"
+    },
+    ["Titans"] = {
+        name = "Titans",
+        tokenId = "rbxassetid://95930329863911",
+        tokensRequired = 10,
+        supremeName = "Colossal Titan",
+        type = "Phantom",
+        Rolls = "Multi",
+    },
+    ["Sins"] = {
+        name = "Sins",
+        tokenId = "rbxassetid://117257507417148",
+        tokensRequired = 10,
+        supremeName = "Pride",
+        type = "Phantom"
+    },
+    ["Commandments"] = {
+        name = "Commandments",
+        tokenId = "rbxassetid://79120710139967",
+        tokensRequired = 10,
+        supremeName = "Love",
+        type = "Supreme"
+    },
+    ["Kaiju_Powers"] = {
+        name = "Kaiju Powers",
+        tokenId = "rbxassetid://100513684359057",
+        tokensRequired = 10,
+        supremeName = "No. 8",
+        type = "Supreme"
+    },
+    ["Ultimate_Skills"] = {
+        name = "Ultimate Skills",
+        tokenId = "rbxassetid://76253382630191",
+        tokensRequired = 10,
+        supremeName = "Raphael",
+        type = "Supreme"
+    },
+    ["Species"] = {
+        name = "Species",
+        tokenId = "rbxassetid://99431844767275",
+        tokensRequired = 10,
+        supremeName = "True Dragon",
+        type = "Supreme"
+    },
+    ["Power_Energy_Runes"] = {
+        name = "Power Energy Runes",
+        tokenId = "rbxassetid://127737736998154",
+        tokensRequired = 10,
+        supremeName = "Supreme Energy Rune",
+        type = "Supreme"
+    },
+    ["Stands"] = {
+        name = "Stands",
+        tokenId = "rbxassetid://87007917599015",
+        tokensRequired = 10,
+        supremeName = "World",
+        type = "Supreme",
+        Rolls = "Multi",
+    },
+    ["Onomatopoeia"] = {
+        name = "Onomatopoeia",
+        tokenId = "rbxassetid://88264916841585",
+        tokensRequired = 10,
+        supremeName = "Supreme Onomatopoeia",
+        type = "Supreme"
+    },
+    ["Investigators"] = {
+        name = "Investigators",
+        tokenId = "rbxassetid://83373491209093",
+        tokensRequired = 10,
+        supremeName = "Special Class",
+        type = "Supreme",
+    },
+    ["Kagune"] = {
+        name = "Kagune",
+        tokenId = "rbxassetid://96844634232385",
+        tokensRequired = 10,
+        supremeName = "Koumyaku",
+        type = "Supreme",
+    },
+    ["Debiru_Hunter"] = {
+        name = "Debiru_Hunter",
+        tokenId = "rbxassetid://84031550212582",
+        tokensRequired = 10,
+        supremeName = "Primal Threat Hunter",
+        type = "Supreme",
+    },
+    ["Akuma_Powers"] = {
+        name = "Akuma_Powers",
+        tokenId = "rbxassetid://71328302349281",
+        tokensRequired = 10,
+        supremeName = "Akuma: Control",
+        type = "Supreme",
+    },
+    ["Special_Fire_Force"] = {
+        name = "Special_Fire_Force",
+        tokenId = "rbxassetid://81573129394061",
+        tokensRequired = 10,
+        supremeName = "Company 8",
+        type = "Supreme",
+    },
+}
+
+
 rollQueue = {}
 currentlyRolling = false
 currentRoll = nil
